@@ -1,14 +1,14 @@
 # WJTouchID
-* An easy way to use TouchID Authorize
-* 用法超简单的TouchID验证，只需几步就可快速集成。
-* 更详细的说明请自行进入WJTouchIDExample里查看
+  * An easy way to use TouchID Authorize
+  * 用法超简单的TouchID验证，只需几步就可快速集成。
+  * 更详细的说明请自行进入WJTouchIDExample里查看
 
 ## 如何使用WJTouchID 
-* 将`WJTouchID`文件夹中的两个文件(`WJTouchID.h``WJTouchID.m`)拽入项目中
-* 导入头文件：`#import "WJTouchID.h"`
+  * 将`WJTouchID`文件夹中的两个文件(`WJTouchID.h``WJTouchID.m`)拽入项目中
+  * 导入头文件：`#import "WJTouchID.h"`
 
 * 这里只是简单介绍怎么使用
-
+```objc
 /** 初始化 */
 WJTouchID *touchid = [[WJTouchID alloc]init]; 
 touchid.delegate = self;  
@@ -33,3 +33,4 @@ touchid.WJTouchIDFallbackTitle = WJNotice(@"自定义按钮标题", @"The Custom
 - (void)WJTouchIDAuthorizeErrorInvalidContext;
 - (void)WJTouchIDAuthorizeErrorTouchIDNotEnrolled; 
 - (void)WJTouchIDAuthorizeErrorTouchIDNotAvailable;
+```objc
