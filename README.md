@@ -33,4 +33,3 @@ touchid.WJTouchIDFallbackTitle = WJNotice(@"自定义按钮标题", @"The Custom
 - (void)WJTouchIDAuthorizeErrorInvalidContext;
 - (void)WJTouchIDAuthorizeErrorTouchIDNotEnrolled; 
 - (void)WJTouchIDAuthorizeErrorTouchIDNotAvailable;
-```objc
