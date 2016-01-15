@@ -10,33 +10,35 @@
 
 #import "WJTouchID.h"
 
+@interface WJTouchID ()
 
+@end
 
-@implementation WJTouchID
-- (void) startWJTouchIDWithMessage:(NSString *)message {
+@implementation WJTouchID 
+
+- (void)startWJTouchIDWithMessage:(NSString *)message fallbackTitle:(NSString *)fallbackTitle delegate:(id<WJTouchIDDelegate>)delegate {
     
     LAContext *context = [[LAContext alloc]init];
     
-    context.localizedFallbackTitle = self.WJTouchIDFallbackTitle;
+    context.localizedFallbackTitle = fallbackTitle;
     
     NSError *error = nil;
     
+    self.delegate = delegate;
+    
+    NSAssert(self.delegate != nil, WJNotice(@"WJTouchIDDelegate 不能为空", @"WJTouchIDDelegate must be non-nil"));
     
     if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
-        /// @param localizedReason 不可为空或者空字符串，否则无法发起TouchID验证,导致崩溃并抛出
-        ///                        NSInvalidArgumentException 信息
         
-        /// @param localizedReason This parameter is mandatory and the call will throw
-        ///                        NSInvalidArgumentException if nil or empty string is specified
-        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:message == nil ? WJNotice(@"默认提示信息", @"The Default Message") : message reply:^(BOOL success, NSError * _Nullable error) {
-
-            self.WJTouchIDErroMessge = error;
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:message == nil ? WJNotice(@"默认提示信息", @"The Default Message") : message reply:^(BOOL success, NSError * _Nullable error) { 
             
             if (success) {
                 
                 if ([self.delegate respondsToSelector:@selector(WJTouchIDAuthorizeSuccess)]) {
-                    
+                    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                         [self.delegate WJTouchIDAuthorizeSuccess];
+                    }];
+                    
                 }
             } else if (error) {
                 
@@ -45,8 +47,9 @@
                     case LAErrorAuthenticationFailed: {
                         
                         if ([self.delegate respondsToSelector:@selector(WJTouchIDAuthorizeFailure)]) {
-                            
+                            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                 [self.delegate WJTouchIDAuthorizeFailure];
+                            }];
                         }
                     }
                         break;
@@ -54,8 +57,9 @@
                     case LAErrorUserCancel: {
                         
                         if ([self.delegate respondsToSelector:@selector(WJTouchIDAuthorizeErrorUserCancel)]) {
-                            
+                            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                 [self.delegate WJTouchIDAuthorizeErrorUserCancel];
+                            }];
                         }
                     }
                         break;
@@ -63,8 +67,9 @@
                     case LAErrorUserFallback: {
                         
                         if ([self.delegate respondsToSelector:@selector(WJTouchIDAuthorizeErrorUserFallback)]) {
-                            
+                            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                 [self.delegate WJTouchIDAuthorizeErrorUserFallback];
+                            }];
                         }
                     }
                         break;
@@ -72,8 +77,9 @@
                     case LAErrorSystemCancel:{
                         
                         if ([self.delegate respondsToSelector:@selector(WJTouchIDAuthorizeErrorSystemCancel)]) {
-                            
+                            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                 [self.delegate WJTouchIDAuthorizeErrorSystemCancel];
+                            }];
                         }
                     }
                         break;
@@ -81,8 +87,9 @@
                     case LAErrorTouchIDNotEnrolled: {
                         
                         if ([self.delegate respondsToSelector:@selector(WJTouchIDAuthorizeErrorTouchIDNotEnrolled)]) {
-                            
+                            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                 [self.delegate WJTouchIDAuthorizeErrorTouchIDNotEnrolled];
+                            }];
                         }
                     }
                         break;
@@ -90,8 +97,9 @@
                     case LAErrorPasscodeNotSet: {
                         
                         if ([self.delegate respondsToSelector:@selector(WJTouchIDAuthorizeErrorPasscodeNotSet)]) {
-                            
+                            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                                 [self.delegate WJTouchIDAuthorizeErrorPasscodeNotSet];
+                            }];
                         }
                     }
                         break;
@@ -99,8 +107,9 @@
                     case LAErrorTouchIDNotAvailable: {
                         
                         if ([self.delegate respondsToSelector:@selector(WJTouchIDAuthorizeErrorTouchIDNotAvailable)]) {
-                            
-                            [self.delegate WJTouchIDAuthorizeErrorTouchIDNotAvailable];
+                            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                [self.delegate WJTouchIDAuthorizeErrorTouchIDNotAvailable];
+                            }];
                         }
                     }
                         break;
@@ -108,8 +117,9 @@
                     case LAErrorTouchIDLockout: {
                         
                         if ([self.delegate respondsToSelector:@selector(WJTouchIDAuthorizeErrorTouchIDLockout)]) {
-                            
-                            [self.delegate WJTouchIDAuthorizeErrorTouchIDLockout];
+                            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                [self.delegate WJTouchIDAuthorizeErrorTouchIDLockout];
+                            }];
                         }
                     }
                         break;
@@ -117,8 +127,9 @@
                     case LAErrorAppCancel:  {
                         
                         if ([self.delegate respondsToSelector:@selector(WJTouchIDAuthorizeErrorAppCancel)]) {
-                            
-                            [self.delegate WJTouchIDAuthorizeErrorAppCancel];
+                            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                [self.delegate WJTouchIDAuthorizeErrorAppCancel];
+                            }];
                         }
                     }
                         break;
@@ -126,8 +137,9 @@
                     case LAErrorInvalidContext: {
                         
                         if ([self.delegate respondsToSelector:@selector(WJTouchIDAuthorizeErrorInvalidContext)]) {
-                            
-                            [self.delegate WJTouchIDAuthorizeErrorInvalidContext];
+                            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                [self.delegate WJTouchIDAuthorizeErrorInvalidContext];
+                            }];
                         }
                     }
                         break;

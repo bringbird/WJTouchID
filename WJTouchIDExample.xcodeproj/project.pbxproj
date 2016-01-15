@@ -431,7 +431,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WJTouchIDExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bringbird.WJTouchIDExample;
+				PRODUCT_BUNDLE_IDENTIFIER = bringbird.WJTouchIDExample1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -443,7 +443,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = WJTouchIDExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bringbird.WJTouchIDExample;
+				PRODUCT_BUNDLE_IDENTIFIER = bringbird.WJTouchIDExample1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -515,6 +515,7 @@
 				E1D0B2B61C466377007ABE89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1D0B2B71C466377007ABE89 /* Build configuration list for PBXNativeTarget "WJTouchIDExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +524,7 @@
 				E1D0B2B91C466377007ABE89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E1D0B2BA1C466377007ABE89 /* Build configuration list for PBXNativeTarget "WJTouchIDExampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -531,6 +533,7 @@
 				E1D0B2BC1C466377007ABE89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

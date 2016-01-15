@@ -9,11 +9,10 @@
 
 
 #import <LocalAuthentication/LocalAuthentication.h>
-
 #if TARGET_IPHONE_SIMULATOR
 #define WJNotice(Chinese,English) [[[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] objectAtIndex:0] isEqualToString:@"zh-Hans-US"] ? Chinese : English
 #elif TARGET_OS_IPHONE
-#define WJNotice(Chinese,English) [[[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] objectAtIndex:0] isEqualToString:@"zh-Hans-CH"] ? Chinese : English
+#define WJNotice(Chinese,English) [[[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] objectAtIndex:0] isEqualToString:@"zh-Hans-CN"] ? Chinese : English
 #endif
 
 @class WJTouchID;
@@ -120,20 +119,6 @@
  *
  *  @param message 提示框需要显示的信息 默认为：输入密码 (Fallback button title. Default is "Enter Password")
  */
-- (void)startWJTouchIDWithMessage:(NSString *)message;
-
-/** 
- *  TouchID验证错误提示
- *
- *  (English Comments) Authentication Failure Message
- */
-@property (nonatomic, strong) NSError  *WJTouchIDErroMessge;
-
-/** 
- *  TouchID验证错误时的按钮标题，默认为"输入密码"
- *
- *  (English Comments) Fallback button title. Default is "Enter Password"
- */
-@property (nonatomic,  copy)  NSString *WJTouchIDFallbackTitle;
+- (void)startWJTouchIDWithMessage:(NSString *)message fallbackTitle:(NSString *)fallbackTitle delegate:(id<WJTouchIDDelegate>)delegate; 
 
 @end

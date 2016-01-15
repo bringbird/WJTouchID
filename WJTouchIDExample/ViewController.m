@@ -12,6 +12,7 @@
 #import "WJTouchID.h"
 
 @interface ViewController ()<WJTouchIDDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *Notice;
 @property (nonatomic, strong) WJTouchID *touchID;
 @end
 
@@ -19,14 +20,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     WJTouchID *touchid = [[WJTouchID alloc]init];
+    
+    [touchid startWJTouchIDWithMessage:WJNotice(@"自定义信息", @"The Custom Message") fallbackTitle:WJNotice(@"按钮标题", @"Fallback Title") delegate:self];
+    
     self.touchID = touchid;
-    touchid.delegate = self;
-    touchid.WJTouchIDFallbackTitle = WJNotice(@"自定义按钮标题", @"The Custom Fallback Title");
-    [touchid startWJTouchIDWithMessage:WJNotice(@"自定义提示语", @"The Custom Message")]; 
+    
 }
 - (IBAction)StartWJTouchID {
-    [self.touchID startWJTouchIDWithMessage:WJNotice(@"自定义提示语", @"The Custom Message")];
+    [self.touchID startWJTouchIDWithMessage:WJNotice(@"这里可以自定义", @"The Custom Message") fallbackTitle:WJNotice(@"按钮标题", @"Fallback Title") delegate:self];
 }
 /**
  *  TouchID验证成功
@@ -34,7 +38,7 @@
  *  (English Comments) Authentication Successul  Authorize Success
  */
 - (void) WJTouchIDAuthorizeSuccess {
-    NSLog(@"line 37: %@",WJNotice(@"TouchID验证成功", @"Authorize Success"));
+    self.Notice.text = WJNotice(@"TouchID验证成功", @"Authorize Success");
 }
 
 /**
@@ -43,7 +47,7 @@
  *  (English Comments) Authentication Failure
  */
 - (void) WJTouchIDAuthorizeFailure {
-    NSLog(@"line 46: %@",WJNotice(@"TouchID验证失败", @"Authorize Failure") );
+    self.Notice.text = WJNotice(@"TouchID验证失败", @"Authorize Failure");
 }
 /**
  *  取消TouchID验证 (用户点击了取消)
@@ -51,7 +55,8 @@
  *  (English Comments) Authentication was canceled by user (e.g. tapped Cancel button).
  */
 - (void) WJTouchIDAuthorizeErrorUserCancel {
-    NSLog(@"line 54: %@",WJNotice(@"取消TouchID验证 (用户点击了取消)", @"Authorize Error User Cancel"));
+    
+    self.Notice.text = WJNotice(@"取消TouchID验证 (用户点击了取消)", @"Authorize Error User Cancel");
 }
 
 /**
@@ -60,7 +65,7 @@
  *  (English Comments) User tapped the fallback button
  */
 - (void) WJTouchIDAuthorizeErrorUserFallback {
-    NSLog(@"line 63: %@",WJNotice(@"在TouchID对话框中点击输入密码按钮", @"Authorize Error User Fallback "));
+    self.Notice.text = WJNotice(@"在TouchID对话框中点击输入密码按钮", @"Authorize Error User Fallback ");
 }
 
 /**
@@ -69,7 +74,7 @@
  *  (English Comments) Authentication was canceled by system (e.g. another application went to foreground).
  */
 - (void) WJTouchIDAuthorizeErrorSystemCancel {
-    NSLog(@"line 72: %@",WJNotice(@"在验证的TouchID的过程中被系统取消", @"Authorize Error System Cancel"));
+    self.Notice.text = WJNotice(@"在验证的TouchID的过程中被系统取消 ", @"Authorize Error System Cancel");
 }
 
 /**
@@ -78,7 +83,7 @@
  *  (English Comments) Authentication could not start, because passcode is not set on the device.
  */
 - (void) WJTouchIDAuthorizeErrorPasscodeNotSet {
-    NSLog(@"line 81: %@",WJNotice(@"无法启用TouchID,设备没有设置密码", @"Authorize Error Passcode Not Set"));
+    self.Notice.text = WJNotice(@"无法启用TouchID,设备没有设置密码", @"Authorize Error Passcode Not Set");
 }
 
 /**
@@ -87,7 +92,7 @@
  *  (English Comments) Authentication could not start, because Touch ID has no enrolled fingers
  */
 - (void) WJTouchIDAuthorizeErrorTouchIDNotEnrolled {
-    NSLog(@"line 90: %@",WJNotice(@"设备没有录入TouchID,无法启用TouchID", @"Authorize Error TouchID Not Enrolled"));
+    self.Notice.text = WJNotice(@"设备没有录入TouchID,无法启用TouchID", @"Authorize Error TouchID Not Enrolled");
 }
 
 /**
@@ -96,7 +101,7 @@
  *  (English Comments) Authentication could not start, because Touch ID is not available on the device.
  */
 - (void) WJTouchIDAuthorizeErrorTouchIDNotAvailable {
-    NSLog(@"line 99: %@",WJNotice(@"该设备的TouchID无效", @"Authorize Error TouchID Not Available"));
+    self.Notice.text = WJNotice(@"该设备的TouchID无效", @"Authorize Error TouchID Not Available");
 }
 
 /**
@@ -106,7 +111,7 @@
  *
  */
 - (void) WJTouchIDAuthorizeLAErrorTouchIDLockout {
-    NSLog(@"line 109: %@",WJNotice(@"多次连续使用Touch ID失败，Touch ID被锁，需要用户输入密码解锁", @"Authorize LAError TouchID Lockout"));
+    self.Notice.text = WJNotice(@"多次连续使用Touch ID失败，Touch ID被锁，需要用户输入密码解锁", @"Authorize LAError TouchID Lockout");
 }
 
 /**
@@ -116,7 +121,7 @@
  *
  */
 - (void) WJTouchIDAuthorizeLAErrorAppCancel {
-    NSLog(@"line 119: %@",WJNotice(@"当前软件被挂起取消了授权", @"Authorize LAError AppCancel"));
+    self.Notice.text = WJNotice(@"当前软件被挂起取消了授权", @"Authorize LAError AppCancel");
 }
 
 /**
@@ -125,7 +130,7 @@
  *  (English Comments) LAContext passed to this call has been previously invalidated.
  */
 - (void) WJTouchIDAuthorizeLAErrorInvalidContext {
-    NSLog(@"line 128: %@",WJNotice(@"当前软件被挂起取消了授权", @"Authorize LAError Invalid Context"));
+    self.Notice.text = WJNotice(@"当前软件被挂起取消了授权", @"Authorize LAError Invalid Context");
 }
 /**
  *  当前设备不支持指纹识别
@@ -133,6 +138,10 @@
  *  (English Comments) The current device does not support fingerprint identification
  */
 -(void)WJTouchIDIsNotSupport {
-    NSLog(@"line 136: %@",WJNotice(@"当前设备不支持指纹识别", @"TouchID Is Not Support"));
+    self.Notice.text = WJNotice(@"当前设备不支持指纹识别", @"The Current Device Does Not Support");
 }
 @end
+//
+
+
+
