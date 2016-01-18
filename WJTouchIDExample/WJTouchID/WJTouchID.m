@@ -150,8 +150,9 @@
     } else {
         
         if ([self.delegate respondsToSelector:@selector(WJTouchIDIsNotSupport)]) {
-            
-            [self.delegate WJTouchIDIsNotSupport];
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self.delegate WJTouchIDIsNotSupport];
+            }];
         }
     }
 }
