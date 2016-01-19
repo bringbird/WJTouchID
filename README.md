@@ -1,8 +1,11 @@
 # WJTouchID
   * An easy way to use TouchID Authorize
   * 用法简单的TouchID验证框架：两行代码搞定。
-
-## 如何使用WJTouchID 
+# 👇👇👇👇👇加入我们👇👇👇👇👇
+      iOS开发交流2000人群👉433515284
+  ![image](https://github.com/bringbird/WJTouchID/raw/master/1.png)
+ 
+# 如何使用WJTouchID 
   * 将`WJTouchID`文件夹中的两个文件(`WJTouchID.h``WJTouchID.m`)拖入项目中
   * 导入头文件：`#import "WJTouchID.h"`
 ```objc
