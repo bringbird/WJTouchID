@@ -33,6 +33,5 @@ WJTouchID *touchid = [[WJTouchID alloc]init];
 ```
 ![image](https://github.com/bringbird/WJTouchID/raw/master/WJTouchID_2.gif)
 
-# 👇👇👇👇👇加入我们👇👇👇👇👇
-iOS开发交流2000人群👉433515284
+# 👇👇👇👇👇加入我们👇👇👇👇👇 
 ![image](https://github.com/bringbird/WJTouchID/raw/master/11.png)
