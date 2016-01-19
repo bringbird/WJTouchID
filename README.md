@@ -1,6 +1,6 @@
 # WJTouchID
   * An easy way to use TouchID Authorize
-  * 用法简单的TouchID验证框架：两行代码搞定。<\p>
+  * 用法简单的TouchID验证框架：两行代码搞定。
  
 # 如何使用WJTouchID 
   * 将`WJTouchID`文件夹中的两个文件(`WJTouchID.h``WJTouchID.m`)拖入项目中
