@@ -32,6 +32,3 @@ WJTouchID *touchid = [[WJTouchID alloc]init];
 - (void)WJTouchIDAuthorizeErrorTouchIDNotAvailable;
 ```
 ![image](https://github.com/bringbird/WJTouchID/raw/master/WJTouchID_2.gif)
-
-# 👇👇👇👇👇加入我们👇👇👇👇👇 
-![image](https://github.com/bringbird/WJTouchID/raw/master/11.png)
