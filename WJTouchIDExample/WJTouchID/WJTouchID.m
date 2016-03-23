@@ -9,18 +9,31 @@
 
 
 #import "WJTouchID.h"
+#import <LocalAuthentication/LocalAuthentication.h>
 
 @interface WJTouchID ()
 
 @end
 
-@implementation WJTouchID 
+@implementation WJTouchID
 
-- (void)startWJTouchIDWithMessage:(NSString *)message fallbackTitle:(NSString *)fallbackTitle delegate:(id<WJTouchIDDelegate>)delegate {
+static WJTouchID *touchID;
+
++ (instancetype)touchID {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        touchID = [[self alloc]init];
+    });
+    return touchID;
+}
+
+- (void)startWJTouchIDWithMessage:(NSString *)message
+                    fallbackTitle:(NSString *)fallbackTitle
+                         delegate:(id<WJTouchIDDelegate>)delegate {
     
     LAContext *context = [[LAContext alloc]init];
     
-    context.localizedFallbackTitle = fallbackTitle;
+    context.localizedFallbackTitle = fallbackTitle == nil ? WJNotice(@"按钮标题", @"Fallback Title") : fallbackTitle;
     
     NSError *error = nil;
     
@@ -30,7 +43,7 @@
     
     if ([context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:&error]) {
         
-        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:message == nil ? WJNotice(@"默认提示信息", @"The Default Message") : message reply:^(BOOL success, NSError * _Nullable error) { 
+        [context evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:message == nil ? WJNotice(@"自定义信息", @"The Custom Message") : message reply:^(BOOL success, NSError * _Nullable error) {
             
             if (success) {
                 
@@ -148,7 +161,6 @@
         }];
         
     } else {
-        
         if ([self.delegate respondsToSelector:@selector(WJTouchIDIsNotSupport)]) {
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 [self.delegate WJTouchIDIsNotSupport];

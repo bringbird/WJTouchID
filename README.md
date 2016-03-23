@@ -1,19 +1,16 @@
 # WJTouchID
   * An easy way to use TouchID Authorize
-  * 用法简单的TouchID验证框架：两行代码搞定。
+  * 用法简单的TouchID验证框架：一行代码搞定。
  
 # 如何使用WJTouchID 
   * 将`WJTouchID`文件夹中的两个文件(`WJTouchID.h``WJTouchID.m`)拖入项目中
   * 导入头文件：`#import "WJTouchID.h"`
-```objc
-/** 初始化 */
-WJTouchID *touchid = [[WJTouchID alloc]init]; 
+```objc 
 
 /** 发起TouchID验证 */
-[touchid startWJTouchIDWithMessage:@"自定义信息" fallbackTitle:@"按钮标题" delegate:self];
+[[WJTouchID touchID] startWJTouchIDWithMessage:@"The Custom Message" fallbackTitle:@"Fallback Title" delegate:self];
 
 /** 通过代理方法监听TouchID验证的所有结果 */ 
-
 /** 其中的成功回调和失败回调是必须要实现的，其他的按实际情况各取所需 */
 @required
 - (void)WJTouchIDAuthorizeSuccess; 

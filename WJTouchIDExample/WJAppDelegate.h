@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  WJAppDelegate.h
 //  WJTouchIDExample
 //
 //  Created by bringbird on 16/1/13.
@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface WJAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

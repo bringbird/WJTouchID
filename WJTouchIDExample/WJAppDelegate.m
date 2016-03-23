@@ -8,13 +8,13 @@
 //  QQ:6799400 Email:bringbird@163.com.
 
 
-#import "AppDelegate.h"
+#import "WJAppDelegate.h"
 
-@interface AppDelegate ()
+@interface WJAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation WJAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

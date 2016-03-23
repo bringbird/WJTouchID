@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E1D0B28C1C466377007ABE89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0B28B1C466377007ABE89 /* main.m */; };
-		E1D0B28F1C466377007ABE89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0B28E1C466377007ABE89 /* AppDelegate.m */; };
-		E1D0B2921C466377007ABE89 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0B2911C466377007ABE89 /* ViewController.m */; };
+		E1D0B28F1C466377007ABE89 /* WJAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0B28E1C466377007ABE89 /* WJAppDelegate.m */; };
+		E1D0B2921C466377007ABE89 /* WJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1D0B2911C466377007ABE89 /* WJViewController.m */; };
 		E1D0B2951C466377007ABE89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1D0B2931C466377007ABE89 /* Main.storyboard */; };
 		E1D0B2971C466377007ABE89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D0B2961C466377007ABE89 /* Assets.xcassets */; };
 		E1D0B29A1C466377007ABE89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1D0B2981C466377007ABE89 /* LaunchScreen.storyboard */; };
@@ -38,10 +38,10 @@
 /* Begin PBXFileReference section */
 		E1D0B2871C466377007ABE89 /* WJTouchIDExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WJTouchIDExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D0B28B1C466377007ABE89 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		E1D0B28D1C466377007ABE89 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		E1D0B28E1C466377007ABE89 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E1D0B2901C466377007ABE89 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E1D0B2911C466377007ABE89 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E1D0B28D1C466377007ABE89 /* WJAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJAppDelegate.h; sourceTree = "<group>"; };
+		E1D0B28E1C466377007ABE89 /* WJAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJAppDelegate.m; sourceTree = "<group>"; };
+		E1D0B2901C466377007ABE89 /* WJViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WJViewController.h; sourceTree = "<group>"; };
+		E1D0B2911C466377007ABE89 /* WJViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WJViewController.m; sourceTree = "<group>"; };
 		E1D0B2941C466377007ABE89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1D0B2961C466377007ABE89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1D0B2991C466377007ABE89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -105,14 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				E1D0B2BD1C4663DC007ABE89 /* WJTouchID */,
-				E1D0B28D1C466377007ABE89 /* AppDelegate.h */,
-				E1D0B28E1C466377007ABE89 /* AppDelegate.m */,
-				E1D0B2901C466377007ABE89 /* ViewController.h */,
-				E1D0B2911C466377007ABE89 /* ViewController.m */,
-				E1D0B2931C466377007ABE89 /* Main.storyboard */,
-				E1D0B2961C466377007ABE89 /* Assets.xcassets */,
-				E1D0B2981C466377007ABE89 /* LaunchScreen.storyboard */,
-				E1D0B29B1C466377007ABE89 /* Info.plist */,
+				E1D0B28D1C466377007ABE89 /* WJAppDelegate.h */,
+				E1D0B28E1C466377007ABE89 /* WJAppDelegate.m */,
+				E1D0B2901C466377007ABE89 /* WJViewController.h */,
+				E1D0B2911C466377007ABE89 /* WJViewController.m */,
 				E1D0B28A1C466377007ABE89 /* Supporting Files */,
 			);
 			path = WJTouchIDExample;
@@ -121,6 +117,10 @@
 		E1D0B28A1C466377007ABE89 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E1D0B2931C466377007ABE89 /* Main.storyboard */,
+				E1D0B2961C466377007ABE89 /* Assets.xcassets */,
+				E1D0B2981C466377007ABE89 /* LaunchScreen.storyboard */,
+				E1D0B29B1C466377007ABE89 /* Info.plist */,
 				E1D0B28B1C466377007ABE89 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -284,8 +284,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1D0B2921C466377007ABE89 /* ViewController.m in Sources */,
-				E1D0B28F1C466377007ABE89 /* AppDelegate.m in Sources */,
+				E1D0B2921C466377007ABE89 /* WJViewController.m in Sources */,
+				E1D0B28F1C466377007ABE89 /* WJAppDelegate.m in Sources */,
 				E1D0B28C1C466377007ABE89 /* main.m in Sources */,
 				E1D0B2C01C4663DC007ABE89 /* WJTouchID.m in Sources */,
 			);

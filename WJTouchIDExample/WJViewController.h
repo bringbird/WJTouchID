@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  WJViewController.h
 //  WJTouchIDExample
 //
 //  Created by bringbird on 16/1/13.
@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface WJViewController : UIViewController
 
 
 @end
