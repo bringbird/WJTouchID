@@ -11,7 +11,7 @@
 [[WJTouchID touchID] startWJTouchIDWithMessage:@"The Custom Message" fallbackTitle:@"Fallback Title" delegate:self];
 
 /** 通过代理方法监听TouchID验证的所有结果 */ 
-/** 其中的成功回调和失败回调是必须要实现的，其他的按实际情况各取所需 */ 
+/** 其中的成功回调和失败回调是必须要实现的，其他的按实际情况各取所需 */
 @required
 - (void)WJTouchIDAuthorizeSuccess; 
 - (void)WJTouchIDAuthorizeFailure; 
